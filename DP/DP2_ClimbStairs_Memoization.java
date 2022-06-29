@@ -1,3 +1,4 @@
+import java.util.*;
 public class DP2_ClimbStairs_Memoization{
     public int climbMem(int n,int[] dp){
         if(n==0 || n==1) return dp[n] = 1;
