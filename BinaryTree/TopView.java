@@ -1,4 +1,16 @@
 public class TopView {
+
+    //GFG : https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1
+    static class Pair{
+        Node node;
+        int hl;
+        
+        Pair(Node node, int hl){
+            this.node = node;
+            this.hl = hl;
+        }
+
+    }
     static ArrayList<Integer> topView(Node root)
     {
         ArrayList<Integer> ans = new ArrayList<>();
