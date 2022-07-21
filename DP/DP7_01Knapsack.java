@@ -81,6 +81,32 @@ static int solveTabOp(int[] weight, int[] value, int n, int capacity){
    }
 return prev[capacity];
 }
+
+// Space Optimized : Using only Single Array
+static int solveTabOpSingleArray(int[] weight, int[] value, int n, int capacity){
+    int[] prev = new int[capacity+1];
+    
+    
+    
+    for(int w=weight[0];w<=capacity;w++){
+        if(weight[0] <= capacity)
+           prev[w] = value[0];
+        else prev[w] = 0;
+    }
+    
+   for(int i=1;i<n;i++){
+       int[] curr = new int[capacity+1];
+        for(int w=capacity;w>=0;w--){
+            int inc=0;
+            if(weight[i] <= w)
+               inc = prev[w-weight[i]] + value[i];
+            int exc = prev[w];
+            prev[w] = Math.max(inc,exc);
+       }
+//            prev = curr;
+   }
+return prev[capacity];
+}
     
     static int knapsack(int[] weight, int[] value, int n, int maxWeight) {
 
